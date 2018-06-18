@@ -1,0 +1,52 @@
+{% extends "layout_xh_desktop.html" %}
+
+{% block content %}
+
+    <div class="container-fluid container-7">
+        <section class="success" id="home">
+            <p>Kubalulekile ukuba iigncibi zibhalise ngokusemthethweni phaya kwisebe lezempilo khona ukuze siqinisekise
+                ukuba zinaso isakhono sokwalusa kwaye ziselungelweni lokwenza njalo. Ukuba ufuna ukubhalisa nje
+                ngengcibi, nceda ugcwalise apha ngezantsi. Igosa lakwarhulumente lizakuqhakamshelana nawe.
+            </p><br/>
+
+            <form action="{{ url_for('surgeons_register') }}" class="form-horizontal" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group {% if form.name.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-5">
+                        Bhala igama?
+                    </div>
+                    <div class="col-sm-5">
+                        {{ form.name(placeholder="Type your name...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-1 help-block">
+                        {{ form.name.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-5">
+                        Ithini ifone number?
+                    </div>
+                    <div class="col-sm-5">
+                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-1 help-block">
+                        {{ form.phone_number.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-5">
+                        Ingaba ikweyiphi indawo ingcibi?
+                    </div>
+                    <div class="col-sm-5">
+                        {{ form.area(placeholder="Type your area...", class="form-control") }}
+                         <br/>
+                    <button class="btn btn-success" type="submit" style="float: right; padding: 8px 30px 8px 30px;">Chofa apha</button>
+                    </div>
+                    <p class="col-sm-1 help-block">
+                        {{ form.area.errors[0] }}
+                </div>
+            </form>
+        </section>
+    </div>
+
+{% endblock content %}

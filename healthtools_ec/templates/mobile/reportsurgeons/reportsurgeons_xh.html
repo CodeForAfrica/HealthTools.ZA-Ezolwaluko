@@ -1,0 +1,81 @@
+{% extends "layout_xh.html" %}
+
+{% block content %}
+
+    <div class="container-fluid container-7">
+        <section class="success" id="home">
+            <p>Siyacela ingcibi zibhalise ngokusemthethweni phaya kwelasebe lezempilo ukuqinisekisa ukuba zikulungele
+                kwaye
+                zinaso isakhono sokwalusa amakhwenkwe. Mawethu lento ibalulekile kakhulu njengoba nisazi nani baninzi
+                abakhwetha abaswelekayo
+                ngenxa yeengcibi ezingekho mthethweni minyaka le. Mxele umntu owalusa ngokungekho mthethweni khona ukuze
+                usindise ubomi bomntwana.
+            </p><br/>
+
+            <form action="{{ url_for('reports_home_mobi') }}" class="form-horizontal" method="POST" style="position: absolute">
+                {{ form.hidden_tag() }}
+                <div class="form-group {% if form.opt_name.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-3">
+                        Bhala igama?
+                    </div>
+                    <div class="col-sm-3">
+                        {{ form.opt_name(placeholder="Type your name (optional)...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-5 help-block">
+                        {{ form.opt_name.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-3">
+                        Ithini ifone number?
+                    </div>
+                    <div class="col-sm-3">
+                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-5 help-block">
+                        {{ form.phone_number.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.surgeons_name.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-3">
+                        Ngubani lengcibi yalusayo ngaphandle kwevume?
+                    </div>
+                    <div class="col-sm-3">
+                        {{ form.surgeons_name(placeholder="Enter his name...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-5 help-block">
+                        {{ form.surgeons_name.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-3">
+                        Amakhwenkwe/abantwana?
+                    </div>
+                    <div class="col-sm-3">
+                        {{ form.area(placeholder="Type the area...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-5 help-block">
+                        {{ form.area.errors[0] }}
+
+                </div>
+                <div class="form-group {% if form.report_problem.errors %} has-error {% endif %}">
+                    <div class="control-label col-sm-3">
+                        Chaza kwenzekani
+                    </div>
+                    <div class="col-sm-3">
+                        {{ form.report_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
+                    </div>
+                    <p class="col-sm-5 help-block">
+                        {{ form.report_problem.errors[0] }}
+
+                </div>
+                <button class="btn btn-success" type="submit">Chofa apha</button>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </section>
+    </div>
+
+{% endblock content %}

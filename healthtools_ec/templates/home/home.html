@@ -1,0 +1,89 @@
+{% extends "layout_desktop.html" %}
+
+{% block content %}
+<!--/row-->
+   <div class="row">
+   <div class="col-sm-6" id="mainblock">
+        <a href="{{ url_for('widgets') }}">
+        <figure class="col-sm-12 snip1175 red">
+            <div id="mainimage">
+       <img id="img-main" class="" src="/static/img/initiation-main2.jpg"  alt="" />
+           <img id="img-main2" class="" src="/static/img/initiation-main.jpg"  alt="" />
+                </div>
+      <figcaption>
+        <h2>Registered</h2>
+        <p>
+          Check if your surgeon is registered
+        </p>
+          <img id="figureimage" src="/static/img/icon.png" style=" height: inherit; padding-bottom: 10px;"/>
+      </figcaption>
+    </figure>
+            </a>
+   </div>
+       <div class="col-sm-6 col-xs-12" >
+           <div class="row" id="rowsplit">
+               <div class="col-sm-6 col-xs-6"  id="imagewidth">
+                   <a href="{{ url_for('initiates_home') }}" id="mainblock">
+                   <figure class="snip1174 red">
+      <img src="/static/img/initiation.jpg" alt="sq-sample33" />
+      <figcaption>
+        <h2>Get Help</h2>
+        <p>
+          Help Hotline for initiates who are in trouble
+        </p>
+          <img id="figureimage" src="/static/img/Get Help Icon.png" style=" height: inherit; padding-bottom: 10px;"/>
+      </figcaption>
+    </figure>
+               </a>
+               </div>
+               <div class="col-sm-6 col-xs-6"  id="imagewidth">
+                   <a href="{{url_for('surgeons_register') }}" id="mainblock">
+                   <figure class="snip1174 blue">
+      <img src="/static/img/initiation.jpg" alt="sq-sample33" />
+      <figcaption>
+        <h2>Get Legal</h2>
+        <p>
+        Do you want to register as a traditional surgeon ?
+        </p>
+
+          <img id="figureimage" src="/static/img/Get Legal Icon.png" style="height: inherit; padding-bottom: 10px;"/>
+      </figcaption>
+    </figure>
+                   </a>
+               </div>
+           </div>
+           <div class="row" id="rowsplit">
+               <div class="col-sm-6 col-xs-6"  id="imagewidth">
+                    <a href="{{url_for('reports_home') }}" id="mainblock">
+                   <figure class="snip1174 redlight">
+      <img src="/static/img/initiation.jpg" alt="sq-sample33" />
+      <figcaption>
+        <h2>Report</h2>
+        <p>
+          Report Illegal surgeons or initiation schools
+        </p>
+          <img id="figureimage" src="/static/img/Report Icon.png" style=" height: inherit; padding-bottom: 10px;"/>
+      </figcaption>
+    </figure>
+                    </a>
+               </div>
+               <div class="col-sm-6 col-xs-6" id="imagewidth1">
+                   <a href="{{url_for('locator') }}" id="mainblock">
+                   <figure class="snip1174 navy">
+      <img src="/static/img/initiation.jpg" alt="sq-sample33" />
+
+      <figcaption>
+        <h2>Find</h2>
+        <p>
+          Find your nearest surgeon or school for initiation
+        </p>
+          <img id="figureimage" src="/static/img/Find Icon.png" style=" height: inherit; padding-bottom: 10px;"/>
+      </figcaption>
+    </figure>
+               </a>
+               </div>
+           </div>
+       </div>
+   </div>
+
+{% endblock content %}

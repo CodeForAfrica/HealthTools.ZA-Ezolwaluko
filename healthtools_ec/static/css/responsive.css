@@ -1,0 +1,55 @@
+/* lg */
+@media (min-width: 1600px) {
+
+}
+
+/* lg */
+@media (min-width: 1200px) {
+
+#img-main{
+    display: none;
+}
+    #img-main2{
+        display: block;
+    }
+}
+/* < lg */
+@media (max-width: 1199px) {
+
+#img-main{
+    display: block;
+}
+    #img-main2{
+        display: none;
+    }
+}
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* xs */
+@media (max-width: 767px) {
+
+}
+
+/* XS Portrait */
+@media (max-width: 479px) {
+
+}
+
+/* everything > 993*/
+@media (min-width: 993px) {
+
+}
+@media (max-width: 992px){
+
+}
+@media (min-width: 1199px) and (max-width: 1250px) {
+
+}

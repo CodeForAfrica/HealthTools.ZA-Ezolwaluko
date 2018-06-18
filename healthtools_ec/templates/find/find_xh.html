@@ -1,0 +1,26 @@
+{% extends "layout_xh_desktop.html" %}
+
+{% block content %}
+
+    <div class="container-fluid container-7">
+        <section class="success" id="home2">
+            <form action="{{ url_for('locator') }}" class="form-horizontal" method="POST" >
+                {{ form.hidden_tag() }}
+                <div class="form-group {% if form.location.errors %} has-error {% endif %}">
+                    <div class="col-sm-5">
+                        Ngobani iingcibi ezikufutshane nawe? Please select your area:
+                    </div>
+                    <div class="col-sm-5">
+                        {{ form.location(placeholder="E.g. Libode", class="form-control") }}
+                                                <br/>
+                        <button class="btn btn-success" type="submit" style="float: right; padding: 8px 30px 8px 30px;">Chofa apha</button>
+                    </div>
+                    <p class="col-sm-1 help-block">
+                        {{ form.location.errors[0] }}
+                </div>
+
+            </form>
+        </section>
+    </div>
+
+{% endblock content %}
