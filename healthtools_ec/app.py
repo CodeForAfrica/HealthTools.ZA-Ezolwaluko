@@ -17,8 +17,7 @@ CsrfProtect(app)
 # Database
 from flask_sqlalchemy import SQLAlchemy
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://healthtools:healthtools@localhost/healthtools'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','postgresql://htools:htools@localhost/htools_ezolwaluko')
 db = SQLAlchemy(app)
 
 # Mail

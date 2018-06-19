@@ -6,15 +6,15 @@ DEBUG = True
 TESTING = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 CSRF_ENABLED = True
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-MAIL_SERVER = os.environ['MAIL_SERVER']
-MAIL_DEFAULT_SENDER = os.environ['MAIL_DEFAULT_SENDER']
-MAIL_USERNAME = os.environ['MAIL_USERNAME']
-MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
-MAIL_PORT = 465
-MAIL_USE_TLS = False
-MAIL_USE_SSL = True
+MAIL_SERVER = os.environ.get('MAIL_SERVER')
+MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+MAIL_PORT = os.environ.get('MAIL_PORT', 465)
+MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', False)
+MAIL_USE_SSL = os.environ.get('MAIL_USE_TLS', True)
 
 # Flask-Security config
 SECURITY_URL_PREFIX = "/user"
@@ -32,10 +32,9 @@ SECURITY_CHANGE_URL = "/change-password/"
 SECURITY_RESET_URL = "/forgot-password"
 
 # Flask-Security email subject lines
-SECURITY_EMAIL_SUBJECT_REGISTER = "Welcome to HealthTools-EC"
-SECURITY_EMAIL_SUBJECT_PASSWORD_RESET = "Password reset instructions for your HealthTools-EC account"
+SECURITY_EMAIL_SUBJECT_REGISTER = "Welcome to Ezolwaluko"
+SECURITY_EMAIL_SUBJECT_PASSWORD_RESET = "Password reset instructions for your Ezolwaluko account"
 
 # Flask-Security features
 SECURITY_RECOVERABLE = True
 SECURITY_CHANGEABLE = True
-

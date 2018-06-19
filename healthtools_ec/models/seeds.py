@@ -11,7 +11,7 @@ def seed_db(db):
             db.session.add(x)
         db.session.commit()
 
-        df = pd.read_csv('C:/Users/Wasim/Documents/GitHub/healthtools-citypress/healthtools_ec/data/traditional.csv')
+        df = pd.read_csv('../data/traditional.csv')
         for i in range(0, len(df)):
             surgeon = Surgeon()
             surgeon.name = df.iloc[i][0]
