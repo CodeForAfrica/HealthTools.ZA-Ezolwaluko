@@ -38,7 +38,7 @@ def email_register(surgeon):
 
 def email_report(report):
     msg = Message('A new surgeon/school report has been created ', sender=MAIL_DEFAULT_SENDER,
-                  recipients=['nicki.gules@citypress.co.za', 'luba4life@gmail.com', 'mamnkeli.ngam@eccogta.gov.za'])
+                  recipients=['chris@codeforafrica.org'])
     msg.body = "A new surgeon / school report was submitted on %s:\r\nReporter Name: %s\r\nPhone: %s\r\nSurgeon's Name: %s\r\nArea: %s\r\nProblem: %s" % (report.timestamp,
                            report.opt_name if report.opt_name not in [None, 'None', ''] else 'no name given',
                            report.phone_number,
