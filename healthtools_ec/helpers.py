@@ -1,9 +1,7 @@
 from flask_login import current_user
-import sendgrid
-import os
 from flask_mail import Message
-from app import mail
-from config import MAIL_DEFAULT_SENDER, MAIL_RECIPIENTS
+from .app import mail
+from .config import MAIL_DEFAULT_SENDER, MAIL_RECIPIENTS
 
 def body_tag_args():
     classes = []

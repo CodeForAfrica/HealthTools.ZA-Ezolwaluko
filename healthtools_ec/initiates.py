@@ -1,10 +1,9 @@
 from healthtools_ec.app import app
-import time
 from flask import request, url_for, redirect, flash, make_response, session, render_template
 from .models import db
-from .models import *
+from .models import Initiate
 from .models.initiates import InitiateForm
-from helpers import email_initiates
+from .helpers import email_initiates
 
 
 
@@ -14,7 +13,7 @@ def initiates_home():
         session['lang'] = 1
         redirect(url_for('home_xh'))
 
-    form = InitiateForm()
+    form = InitiateForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -30,22 +29,14 @@ def initiates_home():
             else:
                 return render_template('initiates/initiateredirect.html')
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
-
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('initiates/initiates_xh.html', form=form))
-        else:
-            resp = make_response(render_template('initiates/initiates.html', form=form))
-
+                flash('Please correct the problems below and try again.', 'warning')
+    if session['lang']:
+        resp = make_response(render_template('initiates/initiates_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('initiates/initiates.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed
@@ -57,7 +48,7 @@ def initiates_home_mobi():
         session['lang'] = 1
         redirect(url_for('home_xh'))
 
-    form = InitiateForm()
+    form = InitiateForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -73,22 +64,15 @@ def initiates_home_mobi():
             else:
                 return render_template('mobile/initiates/initiateredirect.html')
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash('Please correct the problems below and try again.', 'warning')
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('mobile/initiates/initiates_xh.html', form=form))
-        else:
-            resp = make_response(render_template('mobile/initiates/initiates.html', form=form))
-
+    if session['lang']:
+        resp = make_response(render_template('mobile/initiates/initiates_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('mobile/initiates/initiates.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed

@@ -1,16 +1,15 @@
 from healthtools_ec.app import app
-# from flask_mako import render_template
 from flask import request, url_for, redirect, flash, make_response, session, render_template
 
 from .models import db
 from .models import *
 from .models.surgeons import RegisterForm
-from helpers import email_register
+from .helpers import email_register
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def surgeons_register():
-    form = RegisterForm()
+    form = RegisterForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -26,22 +25,15 @@ def surgeons_register():
             else:
                 return render_template('surgeons/registersurgeonredirect.html')
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash('Please correct the problems below and try again.', 'warning')
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('surgeons/surgeons_xh.html', form=form))
-        else:
-            resp = make_response(render_template('surgeons/surgeons.html', form=form))
-
+    if session['lang']:
+        resp = make_response(render_template('surgeons/surgeons_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('surgeons/surgeons.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed
@@ -49,7 +41,7 @@ def surgeons_register():
 
 @app.route('/register-mobi', methods=['GET', 'POST'])
 def surgeons_register_mobi():
-    form = RegisterForm()
+    form = RegisterForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -65,22 +57,15 @@ def surgeons_register_mobi():
             else:
                 return render_template('mobile/surgeons/registersurgeonredirect.html')
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash('Please correct the problems below and try again.', 'warning')
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('mobile/surgeons/surgeons_xh.html', form=form))
-        else:
-            resp = make_response(render_template('mobile/surgeons/surgeons.html', form=form))
-
+    if session['lang']:
+        resp = make_response(render_template('mobile/surgeons/surgeons_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('mobile/surgeons/surgeons.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed

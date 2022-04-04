@@ -6,7 +6,7 @@
         <section class="success" id="home2">
 
             <form action="{{ url_for('locator') }}" class="form-horizontal1" method="POST" >
-                {{ form.hidden_tag() }}
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="form-group {% if form.location.errors %} has-error {% endif %}">
                     <div class="col-sm-5">
                         Who are the nearest traditional surgeons around you? Please select your area:

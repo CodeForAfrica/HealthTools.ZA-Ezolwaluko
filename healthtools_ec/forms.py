@@ -20,7 +20,7 @@ class Form(BaseForm):
     def process(self, *args, **kwargs):
         if not self._decorated:
             self._decorated = True
-            for field in self._fields.itervalues():
+            for field in self._fields.values():
                 field.filters = [StripFilter()] + list(field.filters)
 
         super(Form, self).process(*args, **kwargs)

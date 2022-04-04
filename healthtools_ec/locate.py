@@ -11,7 +11,7 @@ def locator():
         session['lang'] = 1
         redirect(url_for('home_xh'))
 
-    form = FindSurgeonForm()
+    form = FindSurgeonForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -27,22 +27,15 @@ def locator():
 
                 return render_template('find/show.html', surgeons=surgeons)
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash('Please correct the problems below and try again.', 'warning')
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('find/find_xh.html', form=form))
-        else:
-            resp = make_response(render_template('find/find.html', form=form))
-
+    if session['lang']:
+        resp = make_response(render_template('find/find_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('find/find.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed
@@ -54,7 +47,7 @@ def locator_mobi():
         session['lang'] = 1
         redirect(url_for('home_xh'))
 
-    form = FindSurgeonForm()
+    form = FindSurgeonForm(request.form)
     status = 200
     if request.method == 'POST':
         if form.validate():
@@ -69,22 +62,15 @@ def locator_mobi():
             else:
                 return render_template('mobile/find/show.html', surgeons=surgeons)
         else:
-            if request.is_xhr:
-                status = 412
+            if session['lang']:
+                flash('Please correct the problems below and try again.', 'warning')
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash('Please correct the problems below and try again.', 'warning')
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('mobile/find/find_xh.html', form=form))
-        else:
-            resp = make_response(render_template('mobile/find/find.html', form=form))
-
+    if session['lang']:
+        resp = make_response(render_template('mobile/find/find_xh.html', form=form))
     else:
-        resp = ''
+        resp = make_response(render_template('mobile/find/find.html', form=form))
 
     return (resp, status,
             # ensure the browser refreshes the page when Back is pressed

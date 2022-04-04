@@ -6,17 +6,15 @@ from sqlalchemy import (
     Boolean,
     Column,
     DateTime,
-    ForeignKey,
     Integer,
     String,
     func,
 )
-from sqlalchemy.orm import relationship
 from flask_security import UserMixin, RoleMixin, Security, SQLAlchemyUserDatastore
 from flask_security import LoginForm as Form
 from wtforms.fields.html5 import EmailField
-from wtforms import StringField, PasswordField, validators
-from wtforms.validators import DataRequired, Length, InputRequired
+from wtforms import PasswordField
+from wtforms.validators import InputRequired
 
 
 class User(db.Model, UserMixin):
@@ -69,8 +67,8 @@ class Role(db.Model, RoleMixin):
     name = db.Column(db.String(80), unique=True)
     description = db.Column(db.String(255))
 
-    def __unicode__(self):
-        return unicode(self.name)
+    def __str__(self):
+        return self.name
 
     @classmethod
     def create_defaults(self):

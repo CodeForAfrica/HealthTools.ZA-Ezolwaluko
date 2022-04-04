@@ -11,7 +11,7 @@
             </p><br/>
 
             <form action="{{ url_for('reports_home_mobi') }}" class="form-horizontal" method="POST" style="position: absolute">
-                {{ form.hidden_tag() }}
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="form-group {% if form.opt_name.errors %} has-error {% endif %}">
                     <div class="control-label col-sm-3">
                         What is your name?
