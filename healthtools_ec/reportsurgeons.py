@@ -2,7 +2,7 @@ from healthtools_ec.app import app
 from flask import request, url_for, redirect, flash, make_response, session, render_template
 
 from .models import db
-from .models import *
+from .models import ReportSurgeon
 from .models.reportsurgeons import ReportForm
 from .helpers import email_report
 

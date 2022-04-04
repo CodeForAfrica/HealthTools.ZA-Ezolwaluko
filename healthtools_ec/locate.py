@@ -1,8 +1,6 @@
 from healthtools_ec.app import app
-import time
 from flask import request, url_for, redirect, flash, make_response, session, render_template
-from .models import db
-from .models import *
+from .models import Surgeon
 from .models.surgeons import FindSurgeonForm
 
 @app.route('/locate', methods=['GET', 'POST'])

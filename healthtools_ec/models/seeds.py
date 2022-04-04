@@ -2,7 +2,6 @@ from . import *  # noqa
 from ..app import app
 import pandas as pd
 import math
-import os
 
 def seed_db(db):
     """ Add seed entities to the database. """

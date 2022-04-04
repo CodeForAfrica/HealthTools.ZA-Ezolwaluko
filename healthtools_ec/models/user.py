@@ -1,6 +1,5 @@
 from ..app import db, app
 from ..forms import Form
-from flask_mako import render_template
 
 from sqlalchemy import (
     Boolean,
@@ -12,7 +11,7 @@ from sqlalchemy import (
 )
 from flask_security import UserMixin, RoleMixin, Security, SQLAlchemyUserDatastore
 from flask_security import LoginForm as Form
-from wtforms.fields.html5 import EmailField
+from wtforms.fields import EmailField
 from wtforms import PasswordField
 from wtforms.validators import InputRequired
 
@@ -90,4 +89,3 @@ class LoginForm(Form):
 # user authentication
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore, login_form=LoginForm)
-app.extensions['security'].render_template = render_template

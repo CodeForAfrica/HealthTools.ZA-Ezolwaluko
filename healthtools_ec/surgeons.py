@@ -1,8 +1,8 @@
 from healthtools_ec.app import app
-from flask import request, url_for, redirect, flash, make_response, session, render_template
+from flask import request, flash, make_response, session, render_template
 
 from .models import db
-from .models import *
+from .models import RegisterSurgeon
 from .models.surgeons import RegisterForm
 from .helpers import email_register
 
