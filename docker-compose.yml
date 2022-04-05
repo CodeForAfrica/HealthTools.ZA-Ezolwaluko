@@ -1,0 +1,34 @@
+services:
+  app:
+    image: codeforafrica/htools_ezolwaluko
+    restart: unless-stopped
+    build:
+      context: .
+      target: python-app-ci
+    volumes:
+      - ${APP_VOLUME:-app-files}:/app
+    ports:
+      - ${APP_PORT:-8000:5000}
+    depends_on:
+      - db
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+  db:
+    image: postgres:14.2
+    restart: always
+    environment:
+      - POSTGRES_USER=${HTOOLS_POSTGRES_USER:-htools}
+      - POSTGRES_PASSWORD=${HTOOLS_POSTGRES_PASSWORD:-htools}
+      - POSTGRES_DB=${HTOOLS_POSTGRES_PASSWORD:-htools_ezolwaluko}
+    
+    ports:
+      - "5432:5432"
+    
+    volumes:
+      - htools_db:/var/lib/postgresql/data
+
+volumes:
+  htools_db:
+  app-files:
