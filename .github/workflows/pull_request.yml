@@ -31,6 +31,7 @@ jobs:
       - name: Build Docker Image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: false
           tags: codeforafrica/healthtools:latest
           target: python-app-ci
