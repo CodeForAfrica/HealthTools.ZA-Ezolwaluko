@@ -25,12 +25,12 @@ def email_initiates(initiate):
         sender=MAIL_DEFAULT_SENDER,
         recipients=MAIL_RECIPIENTS,
     )
-    msg.body = "A new initiate report was generated on %s:\r\nName: %s\r\nPhone: %s\r\nProblem: %s" % (
-        initiate.timestamp,
-        initiate.name,
-        initiate.phone_number,
-        initiate.initiate_problem,
+    msg.body = (
+        f"A new initiate report was generated on {initiate.timestamp}:\r\n"
+        f"Name: {initiate.name}\r\nPhone: {initiate.phone_number}\r\n"
+        f"Problem: {initiate.initiate_problem}"
     )
+
     response = mail.send(msg)
     return response
 
@@ -42,8 +42,8 @@ def email_register(surgeon):
         recipients=MAIL_RECIPIENTS,
     )
     msg.body = (
-        "A new registration request was generated on %s:\r\nName: %s\r\nPhone: %s\r\nArea: %s"
-        % (surgeon.timestamp, surgeon.name, surgeon.phone_number, surgeon.area)
+        f"A new registration request was generated on {surgeon.timestamp}:\r\n"
+        f"Name: {surgeon.name}\r\nPhone: {surgeon.phone_number}\r\nArea: {surgeon.area}"
     )
     response = mail.send(msg)
     return response
@@ -55,16 +55,17 @@ def email_report(report):
         sender=MAIL_DEFAULT_SENDER,
         recipients=MAIL_RECIPIENTS,
     )
-    msg.body = "A new surgeon / school report was submitted on %s:\r\nReporter Name: %s\r\nPhone: \
-            %s\r\nSurgeon's Name: %s\r\nArea: %s\r\nProblem: %s" % (
-        report.timestamp,
+    reporter_name = (
         report.opt_name
         if report.opt_name not in [None, "None", ""]
-        else "no name given",
-        report.phone_number,
-        report.surgeons_name,
-        report.area,
-        report.report_problem,
+        else "no name given"
     )
+    msg.body = (
+        f"A new surgeon / school report was submitted on: {report.timestamp}\r\n"
+        f"Reporter Name: {reporter_name}\r\n"
+        f"Phone: {report.phone_number}\r\nSurgeon's Name: {report.surgeons_name}\r\n"
+        f"Area: {report.area}\r\nProblem: {report.report_problem}"
+    )
+
     response = mail.send(msg)
     return response

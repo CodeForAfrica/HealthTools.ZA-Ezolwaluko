@@ -17,7 +17,7 @@ class Surgeon(db.Model):
     category = db.Column(db.String(10), nullable=True)
 
     def __repr__(self):
-        return "<id {}>".format(self.id)
+        return "<id {self.id}>"
 
 
 class RegisterSurgeon(db.Model):
@@ -36,7 +36,7 @@ class RegisterSurgeon(db.Model):
     )
 
     def __repr__(self):
-        return "<id {}>".format(self.id)
+        return "<id {self.id}>"
 
 
 class RegisterForm(Form):

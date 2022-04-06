@@ -22,7 +22,7 @@ class Initiate(db.Model):
     )
 
     def __repr__(self):
-        return "<id {}>".format(self.id)
+        return f"<id {self.id}>"
 
 
 class InitiateForm(Form):
