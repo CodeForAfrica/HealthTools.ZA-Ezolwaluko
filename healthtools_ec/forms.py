@@ -1,20 +1,21 @@
 from flask_wtf import Form as BaseForm
 
 
-class StripFilter():
+class StripFilter:
     def __call__(self, value):
-        if value is not None and hasattr(value, 'strip'):
+        if value is not None and hasattr(value, "strip"):
             return value.strip()
         else:
             return value
 
 
 class Form(BaseForm):
-    """ A form that strips the values of all its fields. """
+    """A form that strips the values of all its fields."""
+
     _decorated = False
 
     def __init__(self, *args, **kwargs):
-        self._obj = kwargs.get('obj')
+        self._obj = kwargs.get("obj")
         super(Form, self).__init__(*args, **kwargs)
 
     def process(self, *args, **kwargs):

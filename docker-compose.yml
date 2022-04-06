@@ -22,10 +22,10 @@ services:
       - POSTGRES_USER=${HTOOLS_POSTGRES_USER:-htools}
       - POSTGRES_PASSWORD=${HTOOLS_POSTGRES_PASSWORD:-htools}
       - POSTGRES_DB=${HTOOLS_POSTGRES_PASSWORD:-htools_ezolwaluko}
-    
+
     ports:
       - "5432:5432"
-    
+
     volumes:
       - htools_db:/var/lib/postgresql/data
 
