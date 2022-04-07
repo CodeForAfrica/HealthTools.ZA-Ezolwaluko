@@ -10,7 +10,7 @@ from flask import (
 
 from healthtools_ec.app import app
 
-from .helpers import email_initiates
+from .helpers import email_initiates, get_locale_extension
 from .models import Initiate, db
 from .models.initiates import InitiateForm
 
@@ -32,19 +32,17 @@ def initiates_home():
             db.session.commit()
             response = email_initiates(initiate)
             print(response)
-            if session["lang"]:
-                return render_template("initiates/initiateredirect_xh.html")
-            else:
-                return render_template("initiates/initiateredirect.html")
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(f"initiates/initiateredirect{template_locale}.html")
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-    if session["lang"]:
-        resp = make_response(render_template("initiates/initiates_xh.html", form=form))
-    else:
-        resp = make_response(render_template("initiates/initiates.html", form=form))
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(f"initiates/initiates{template_locale}.html", form=form)
+    )
 
     return (
         resp,
@@ -71,24 +69,19 @@ def initiates_home_mobi():
             db.session.commit()
             response = email_initiates(initiate)
             print(response)
-            if session["lang"]:
-                return render_template("mobile/initiates/initiateredirect_xh.html")
-            else:
-                return render_template("mobile/initiates/initiateredirect.html")
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"mobile/initiates/initiateredirect{template_locale}.html"
+            )
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-
-    if session["lang"]:
-        resp = make_response(
-            render_template("mobile/initiates/initiates_xh.html", form=form)
-        )
-    else:
-        resp = make_response(
-            render_template("mobile/initiates/initiates.html", form=form)
-        )
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(f"mobile/initiates/initiates{template_locale}.html", form=form)
+    )
 
     return (
         resp,

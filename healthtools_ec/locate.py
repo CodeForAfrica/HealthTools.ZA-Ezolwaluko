@@ -10,6 +10,7 @@ from flask import (
 
 from healthtools_ec.app import app
 
+from .helpers import get_locale_extension
 from .models import Surgeon
 from .models.surgeons import FindSurgeonForm
 
@@ -28,22 +29,17 @@ def locator():
             data = int(form.location.data)
             locate = form.location.choices[data][1]
             surgeons = Surgeon.query.filter_by(area=locate).all()
-
-            if session["lang"]:
-                return render_template("find/show_xh.html", surgeons=surgeons)
-            else:
-
-                return render_template("find/show.html", surgeons=surgeons)
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"find/show{template_locale}.html", surgeons=surgeons
+            )
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-
-    if session["lang"]:
-        resp = make_response(render_template("find/find_xh.html", form=form))
-    else:
-        resp = make_response(render_template("find/find.html", form=form))
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(render_template(f"find/find{template_locale}.html", form=form))
 
     return (
         resp,
@@ -67,21 +63,19 @@ def locator_mobi():
             data = int(form.location.data)
             locate = form.location.choices[data][1]
             surgeons = Surgeon.query.filter_by(area=locate).all()
-
-            if session["lang"]:
-                return render_template("mobile/find/show_xh.html", surgeons=surgeons)
-            else:
-                return render_template("mobile/find/show.html", surgeons=surgeons)
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"mobile/find/show{template_locale}.html", surgeons=surgeons
+            )
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-
-    if session["lang"]:
-        resp = make_response(render_template("mobile/find/find_xh.html", form=form))
-    else:
-        resp = make_response(render_template("mobile/find/find.html", form=form))
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(f"mobile/find/find{template_locale}.html", form=form)
+    )
 
     return (
         resp,

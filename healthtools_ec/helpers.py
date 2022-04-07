@@ -69,3 +69,9 @@ def email_report(report):
 
     response = mail.send(msg)
     return response
+
+
+def get_locale_extension(session_lang):
+    # Default is English so we don't need locale extension
+    # Update this if we need to support more languages
+    return "_xh" if session_lang else ""

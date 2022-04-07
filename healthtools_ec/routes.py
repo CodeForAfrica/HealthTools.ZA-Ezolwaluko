@@ -6,6 +6,7 @@ import healthtools_ec.locate
 import healthtools_ec.reportsurgeons
 import healthtools_ec.surgeons  # NOQA
 from healthtools_ec.app import app
+from healthtools_ec.helpers import get_locale_extension
 
 
 @app.route("/")
@@ -38,10 +39,8 @@ def about():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("about/about_xh.html")
-    else:
-        return render_template("about/about.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"about/about{template_locale}.html")
 
 
 @app.route("/about-mobi")
@@ -49,10 +48,8 @@ def about_mobi():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("mobile/about/about_xh.html")
-    else:
-        return render_template("mobile/about/about.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"mobile/about/about{template_locale}.html")
 
 
 @app.route("/faq")
@@ -82,10 +79,8 @@ def contact():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("contact/contact_xh.html")
-    else:
-        return render_template("contact/contact.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"contact/contact{template_locale}.html")
 
 
 @app.route("/contact-mobi")
@@ -93,10 +88,8 @@ def contact_mobi():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("mobile/contact/contact_xh.html")
-    else:
-        return render_template("mobile/contact/contact.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"mobile/contact/contact{template_locale}.html")
 
 
 @app.route("/find")
@@ -104,10 +97,8 @@ def widgets():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("widgets/widget_searchsurgeon_xh.html")
-    else:
-        return render_template("widgets/widget_searchsurgeon.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"widgets/widget_searchsurgeon{template_locale}.html")
 
 
 @app.route("/find-mobi")
@@ -115,7 +106,5 @@ def widgets_mobi():
     if "lang" not in session.keys():
         session["lang"] = 1
         redirect(url_for("home_xh"))
-    if session["lang"]:
-        return render_template("mobile/widgets/widget_searchsurgeon_xh.html")
-    else:
-        return render_template("mobile/widgets/widget_searchsurgeon.html")
+    template_locale = get_locale_extension(session["lang"])
+    return render_template(f"mobile/widgets/widget_searchsurgeon{template_locale}.html")

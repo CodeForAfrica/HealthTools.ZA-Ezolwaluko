@@ -10,7 +10,7 @@ from flask import (
 
 from healthtools_ec.app import app
 
-from .helpers import email_report
+from .helpers import email_report, get_locale_extension
 from .models import ReportSurgeon, db
 from .models.reportsurgeons import ReportForm
 
@@ -32,24 +32,21 @@ def reports_home():
             db.session.commit()
             response = email_report(report)
             print(response)
-            if session["lang"]:
-                return render_template("reportsurgeons/reportsurgeonredirect_xh.html")
-            else:
-                return render_template("reportsurgeons/reportsurgeonredirect.html")
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"reportsurgeons/reportsurgeonredirect{template_locale}.html"
+            )
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-
-    if session["lang"]:
-        resp = make_response(
-            render_template("reportsurgeons/reportsurgeons_xh.html", form=form)
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(
+            f"reportsurgeons/reportsurgeons{template_locale}.html", form=form
         )
-    else:
-        resp = make_response(
-            render_template("reportsurgeons/reportsurgeons.html", form=form)
-        )
+    )
 
     return (
         resp,
@@ -76,28 +73,21 @@ def reports_home_mobi():
             db.session.commit()
             response = email_report(report)
             print(response)
-            if session["lang"]:
-                return render_template(
-                    "mobile/reportsurgeons/reportsurgeonredirect_xh.html"
-                )
-            else:
-                return render_template(
-                    "mobile/reportsurgeons/reportsurgeonredirect.html"
-                )
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"mobile/reportsurgeons/reportsurgeonredirect{template_locale}.html"
+            )
         else:
             if session["lang"]:
                 flash("Please correct the problems below and try again.", "warning")
             else:
                 flash("Please correct the problems below and try again.", "warning")
-
-    if session["lang"]:
-        resp = make_response(
-            render_template("mobile/reportsurgeons/reportsurgeons_xh.html", form=form)
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(
+            f"mobile/reportsurgeons/reportsurgeons{template_locale}.html", form=form
         )
-    else:
-        resp = make_response(
-            render_template("mobile/reportsurgeons/reportsurgeons.html", form=form)
-        )
+    )
 
     return (
         resp,
