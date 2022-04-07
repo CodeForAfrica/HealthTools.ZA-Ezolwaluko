@@ -38,7 +38,10 @@ def reports_home():
             )
         else:
             if session["lang"]:
-                flash("Please correct the problems below and try again.", "warning")
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
                 flash("Please correct the problems below and try again.", "warning")
     template_locale = get_locale_extension(session["lang"])
@@ -79,7 +82,10 @@ def reports_home_mobi():
             )
         else:
             if session["lang"]:
-                flash("Please correct the problems below and try again.", "warning")
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
                 flash("Please correct the problems below and try again.", "warning")
     template_locale = get_locale_extension(session["lang"])

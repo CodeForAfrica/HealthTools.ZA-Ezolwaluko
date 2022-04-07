@@ -26,7 +26,10 @@ def surgeons_register():
             )
         else:
             if session["lang"]:
-                flash("Please correct the problems below and try again.", "warning")
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
                 flash("Please correct the problems below and try again.", "warning")
     template_locale = get_locale_extension(session["lang"])
@@ -61,7 +64,10 @@ def surgeons_register_mobi():
             )
         else:
             if session["lang"]:
-                flash("Please correct the problems below and try again.", "warning")
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
                 flash("Please correct the problems below and try again.", "warning")
     template_locale = get_locale_extension(session["lang"])
