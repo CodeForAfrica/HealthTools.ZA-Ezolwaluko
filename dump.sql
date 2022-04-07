@@ -705,4 +705,3 @@ ALTER TABLE ONLY roles_users
 --
 -- PostgreSQL database dump complete
 --
-

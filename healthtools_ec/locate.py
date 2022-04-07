@@ -1,91 +1,91 @@
+from flask import (
+    flash,
+    make_response,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
+
 from healthtools_ec.app import app
-import time
-from flask import request, url_for, redirect, flash, make_response, session, render_template
-from .models import db
-from .models import *
+
+from .helpers import get_locale_extension
+from .models import Surgeon
 from .models.surgeons import FindSurgeonForm
 
-@app.route('/locate', methods=['GET', 'POST'])
+
+@app.route("/locate", methods=["GET", "POST"])
 def locator():
-    if 'lang' not in session.keys():
-        session['lang'] = 1
-        redirect(url_for('home_xh'))
+    if "lang" not in session.keys():
+        session["lang"] = 1
+        redirect(url_for("home_xh"))
 
-    form = FindSurgeonForm()
+    form = FindSurgeonForm(request.form)
     status = 200
-    if request.method == 'POST':
+    if request.method == "POST":
         if form.validate():
 
             data = int(form.location.data)
             locate = form.location.choices[data][1]
             surgeons = Surgeon.query.filter_by(area=locate).all()
-
-
-            if session['lang']:
-                return render_template('find/show_xh.html', surgeons=surgeons)
-            else:
-
-                return render_template('find/show.html', surgeons=surgeons)
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"find/show{template_locale}.html", surgeons=surgeons
+            )
         else:
-            if request.is_xhr:
-                status = 412
+            if session["lang"]:
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash("Please correct the problems below and try again.", "warning")
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(render_template(f"find/find{template_locale}.html", form=form))
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('find/find_xh.html', form=form))
-        else:
-            resp = make_response(render_template('find/find.html', form=form))
+    return (
+        resp,
+        status,
+        # ensure the browser refreshes the page when Back is pressed
+        {"Cache-Control": "no-cache, no-store, must-revalidate"},
+    )
 
-    else:
-        resp = ''
 
-    return (resp, status,
-            # ensure the browser refreshes the page when Back is pressed
-            {'Cache-Control': 'no-cache, no-store, must-revalidate'})
-
-@app.route('/locator-mobi', methods=['GET', 'POST'])
+@app.route("/locator-mobi", methods=["GET", "POST"])
 def locator_mobi():
-    if 'lang' not in session.keys():
-        session['lang'] = 1
-        redirect(url_for('home_xh'))
+    if "lang" not in session.keys():
+        session["lang"] = 1
+        redirect(url_for("home_xh"))
 
-    form = FindSurgeonForm()
+    form = FindSurgeonForm(request.form)
     status = 200
-    if request.method == 'POST':
+    if request.method == "POST":
         if form.validate():
 
             data = int(form.location.data)
             locate = form.location.choices[data][1]
             surgeons = Surgeon.query.filter_by(area=locate).all()
-
-
-            if session['lang']:
-                return render_template('mobile/find/show_xh.html', surgeons=surgeons)
-            else:
-                return render_template('mobile/find/show.html', surgeons=surgeons)
+            template_locale = get_locale_extension(session["lang"])
+            return render_template(
+                f"mobile/find/show{template_locale}.html", surgeons=surgeons
+            )
         else:
-            if request.is_xhr:
-                status = 412
+            if session["lang"]:
+                flash(
+                    "Nceda ulungise ezi ngxaki zingezantsi kwaye uzame kwakhona.",
+                    "warning",
+                )
             else:
-                if session['lang']:
-                    flash('Please correct the problems below and try again.', 'warning')
-                else:
-                    flash('Please correct the problems below and try again.', 'warning')
+                flash("Please correct the problems below and try again.", "warning")
+    template_locale = get_locale_extension(session["lang"])
+    resp = make_response(
+        render_template(f"mobile/find/find{template_locale}.html", form=form)
+    )
 
-    if not request.is_xhr:
-        if session['lang']:
-            resp = make_response(render_template('mobile/find/find_xh.html', form=form))
-        else:
-            resp = make_response(render_template('mobile/find/find.html', form=form))
-
-    else:
-        resp = ''
-
-    return (resp, status,
-            # ensure the browser refreshes the page when Back is pressed
-            {'Cache-Control': 'no-cache, no-store, must-revalidate'})
+    return (
+        resp,
+        status,
+        # ensure the browser refreshes the page when Back is pressed
+        {"Cache-Control": "no-cache, no-store, must-revalidate"},
+    )

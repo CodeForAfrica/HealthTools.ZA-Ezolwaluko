@@ -1,17 +1,19 @@
-from . import *  # noqa
-from ..app import app
-import pandas as pd
 import math
-import os
+
+import pandas as pd
+
+from ..app import app
+from . import Surgeon, User
+
 
 def seed_db(db):
-    """ Add seed entities to the database. """
+    """Add seed entities to the database."""
     with app.app_context():
         for x in User.create_defaults():
             db.session.add(x)
         db.session.commit()
 
-        df = pd.read_csv('../data/traditional.csv')
+        df = pd.read_csv("../data/traditional.csv")
         for i in range(0, len(df)):
             surgeon = Surgeon()
             surgeon.name = df.iloc[i][0]
@@ -29,7 +31,7 @@ def seed_db(db):
             if math.isnan(df.iloc[i][3]):
                 surgeon.phone_number = None
             else:
-                surgeon.phone_number = '0' + str(int(df.iloc[i][3]))
+                surgeon.phone_number = "0" + str(int(df.iloc[i][3]))
 
             if isinstance(df.iloc[i][4], str):
                 surgeon.standard = df.iloc[i][4]

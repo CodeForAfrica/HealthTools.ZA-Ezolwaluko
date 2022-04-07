@@ -1,5 +1,6 @@
-from healthtools_ec.app import db
-from user import User, Role
-from initiates import Initiate
-from surgeons import Surgeon, RegisterSurgeon
-from reportsurgeons import ReportSurgeon
+from healthtools_ec.app import db  # NOQA
+
+from .initiates import Initiate  # NOQA
+from .reportsurgeons import ReportSurgeon  # NOQA
+from .surgeons import RegisterSurgeon, Surgeon  # NOQA
+from .user import Role, User  # NOQA

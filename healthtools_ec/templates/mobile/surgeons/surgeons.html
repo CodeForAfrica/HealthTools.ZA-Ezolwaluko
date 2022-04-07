@@ -10,7 +10,7 @@
                 If you would like to register, fill out these fields and a government official will contact you.
             </p><br/>
             <form action="{{ url_for('surgeons_register_mobi') }}" class="form-horizontal" method="POST" style="position: absolute">
-                {{ form.hidden_tag() }}
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="form-group {% if form.name.errors %} has-error {% endif %}">
                     <div class="control-label col-sm-3">
                         What is your name?
