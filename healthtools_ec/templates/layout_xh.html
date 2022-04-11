@@ -4,15 +4,13 @@
     {% include 'snippets/header.html' %}
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 <main>
     {% include 'snippets/navigation_xh.html' %}
 
     {% block content %}
 
     {% endblock content %}
-
-    {% include 'snippets/footer.html' %}
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115780121-2"></script>
@@ -23,7 +21,7 @@
 
     gtag('config', 'UA-115780121-2');
     </script>
-
 </main>
+{% include 'snippets/footer.html' %}
 </body>
 </html>

@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% include 'snippets_desktop/header_desktop.html' %}
-</head>
+  <head>
+    {% include 'snippets_desktop/header_desktop.html' %}
+  </head>
 
-<body>
+  <body>
+    <main>
+      {% include 'snippets_desktop/navigation_desktop.html' %}
+      {% block content %}
 
-  {% include 'snippets_desktop/navigation_desktop.html' %}
-  <section class="hello">
-    {% block content %}
+      {% endblock content %}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115780121-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    {% endblock content %}
-  </section>
-  {% include 'snippets_desktop/footer_desktop.html' %}
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115780121-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-115780121-2');
-  </script>
-
-
-</body>
+        gtag('config', 'UA-115780121-2');
+      </script>
+    </main>
+    {% include 'snippets_desktop/footer_desktop.html' %}
+  </body>
 </html>
