@@ -2,76 +2,71 @@
 
 {% block content %}
 
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
-            <p>It is critical for traditional surgeons to register with the Eastern Cape department of health to ensure
-                that
-                they have the skills to perform ritual circumcisions.
-                Many initiates die every year at the hands of illegal surgeons, so report them here and save a life.
-            </p><br/>
-
-            <form action="{{ url_for('reports_home') }}" class="form-horizontal" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="form-group {% if form.opt_name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
-                        What is your name?
-                    </div>
-                    <div class="col-sm-5">
-                        {{ form.opt_name(placeholder="Type your name (optional)...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.opt_name.errors[0] }}
-
+    <div class="main_content">
+        <p>It is critical for traditional surgeons to register with the Eastern Cape department of health to ensure
+            that
+            they have the skills to perform ritual circumcisions.
+            Many initiates die every year at the hands of illegal surgeons, so report them here and save a life.
+        </p>
+        <form action="{{ url_for('reports_home') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="mt-3">
+                <div class="form-label">
+                    What is your name?
                 </div>
-                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
-                        What is your phone number?
-                    </div>
-                    <div class="col-sm-5">
-                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.phone_number.errors[0] }}
-
+                <div class="{% if form.opt_name.errors %} form-control is-invalid {% endif %}">
+                    {{ form.opt_name(placeholder="Type your name (optional)...", class="form-control") }}
                 </div>
-                <div class="form-group {% if form.surgeons_name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
-                        What is the illegal traditional surgeon's name?
-                    </div>
-                    <div class="col-sm-5">
-                        {{ form.surgeons_name(placeholder="Enter his name...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.surgeons_name.errors[0] }}
-
+                <p class="invalid-feedback">
+                    {{ form.opt_name.errors[0] }}
+                </p>
+            </div>
+            <div class="mt-3">
+                <div class="form-label">
+                    What is your phone number?
                 </div>
-                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
-                        What area does he work in?
-                    </div>
-                    <div class="col-sm-5">
-                        {{ form.area(placeholder="Type the area...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.area.errors[0] }}
-
+                <div class="{% if form.phone_number.errors %}form-control is-invalid {% endif %}">
+                    {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
                 </div>
-                <div class="form-group {% if form.report_problem.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
-                        Please describe what is happening
-                    </div>
-                    <div class="col-sm-5">
-                        {{ form.report_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
-                         <br/>
-                    <button class="btn btn-success" type="submit" style="float: right; padding: 8px 30px 8px 30px;">Submit</button>
-                    </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.report_problem.errors[0] }}
+                <p class="invalid-feedback">
+                    {{ form.phone_number.errors[0] }}
+                </p>
+            </div>
+            <div class="mt-3">
+                <div class="form-label">
+                    What is the illegal traditional surgeon's name?
                 </div>
+                <div class="{% if form.surgeons_name.errors %} form-control has-error {% endif %}">
+                    {{ form.surgeons_name(placeholder="Enter his name...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.surgeons_name.errors[0] }}
+                </p>
+            </div>
+            <div class="mt-3">
+                <div class="form-label">
+                    What area does he work in?
+                </div>
+                <div class=" {% if form.area.errors %} form-control is-invalid {% endif %}">
+                    {{ form.area(placeholder="Type the area...", class="form-control") }}
+                </div>
+                <p class="col-sm-1 help-block">
+                    {{ form.area.errors[0] }}
 
-
-            </form>
-        </section>
+            </div>
+            <div class="{% if form.report_problem.errors %}form-group has-error {% endif %}">
+                <div class="form-label">
+                    Please describe what is happening
+                </div>
+                <div class="{% if form.report_problem.errors %} form-control is-invalid {% endif %}">
+                    {{ form.report_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.report_problem.errors[0] }}
+                </p>
+                <button class="btn btn-success w-100 my-3" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
 
 {% endblock content %}
