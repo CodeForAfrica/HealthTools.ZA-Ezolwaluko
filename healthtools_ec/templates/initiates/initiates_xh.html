@@ -2,42 +2,48 @@
 
 {% block content %}
 
-    <div class="main_content d-flex justify-content-center">
-        <div class="w-100">
-            <p>ingaba ukhona umkhwetha omaziyo udinga uncedo. Sichazele khona ukuze usindise ubom!</p>
-            <form action="{{ url_for('initiates_home') }}" method="POST" >
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="control-label">
-                    Bhala igama?
+<div class="main_content d-flex justify-content-center text-end">
+    <div>
+        <p class="pe-5">ingaba ukhona umkhwetha omaziyo udinga uncedo. Sichazele khona ukuze usindise ubom!</p>
+        <form action="{{ url_for('initiates_home') }}" method="POST" >
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="d-flex p-2">
+                    <div class="control-label w-50 text-end pe-4">
+                        Bhala igama?
+                    </div>
+                    <div class="is-invalid w-50">
+                        {{ form.name(placeholder="Type your name...", class="form-control") }}
+                    </div>
                 </div>
-                <div class="is-invalid">
-                    {{ form.name(placeholder="Type your name...", class="form-control") }}
-                </div>
-                <p class="invalid-feedback">
-                    {{ form.name.errors[0] }}
-                </p>
-                <div class="control-label">
+            <p class="invalid-feedback">
+                {{ form.name.errors[0] }}
+            </p>
+            <div class="d-flex p-2">
+                <div class="control-label w-50 text-end pe-4">
                     Ithini ifone number?
                 </div>
-                <div class="is-invalid">
+                <div class="is-invalid w-50">
                     {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
                 </div>
-                <p class="invalid-feedback">
-                    {{ form.phone_number.errors[0] }}
-                </p>
-                <div class="control-label">
+            </div>
+            <p class="invalid-feedback">
+                {{ form.phone_number.errors[0] }}
+            </p>
+            <div class="d-flex p-2">
+                <div class="control-label w-50 text-end pe-4">
                     Chaza ingxaki yomkhwetha
                 </div>
-                <div class="is-invalid">
+                <div class="is-invalid w-50 flex-fill">
                     {{ form.initiate_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
                 </div>
-                <button class="btn btn-success w-100 mt-5" type="submit">Chofa apha</button>
-                </div>
-                <p class="invalid-feedback">
-                    {{ form.initiate_problem.errors[0] }}
-                </p>
-            </form>
-        </div>
+            </div>
+            <button class="btn btn-success mt-3 padded_btn" type="submit">Chofa apha</button>
+            </div>
+            <p class="invalid-feedback">
+                {{ form.initiate_problem.errors[0] }}
+            </p>
+        </form>
     </div>
+</div>
 
 {% endblock content %}
