@@ -190,6 +190,139 @@ figure.snip1174:hover #figureimage {
     width: 100%; height:auto;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  #img-main, #img-main2{
+    height: 30%;
+  }
+  .home_registered_surgeon {
+    width: 100%;
+    margin: 0 !important;
+  }
+  .home_others {
+    width: 100%;
+    margin: 0 !important
+  }
+  .main_content {
+    flex-direction: column;
+  }
+  .others1 {
+    flex-direction: column;
+  }
+  .others2 {
+    flex-direction: column;
+  }
+  .register_home_page {
+    text-align: center !important;
+    margin: 1.5rem;
+  }
+  .register_fields {
+    flex-direction: column;
+  }
+  .register_form {
+    padding: 0px !important;
+  }
+  .register_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .find_form_fields {
+    flex-direction: column;
+    margin: 1.5rem;
+  }
+  .find_form_fields div{
+    width: 100% !important;
+  }
+  .report_home_page {
+    text-align: center !important;
+    margin: 1.5rem;
+  }
+  .report_form {
+    padding: 0px !important;
+  }
+  .report_form_fields {
+    flex-direction: column;
+  }
+  .report_form_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .initiate_help_page {
+    text-align: center !important;
+    margin: 1.5rem;
+  }
+  .initiates_problems {
+    flex-direction: column;
+  }
+  .initiate_help_desc {
+    padding: 0px !important;
+  }
+  .initiate_help_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .w-75 {
+    width: 100% !important;
+  }
+  figure.snip1175 {
+    width: inherit !important;
+  }
+  figure.snip1174 {
+    margin: 0 !important;
+  }
+  .me-4 {
+    margin-right: 3.0rem !important;
+  }
+  footer{
+    width: 100% !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .home_registered_surgeon {
+    width: 100%;
+    height: auto;
+  }
+  .home_others {
+    width: 100%;
+    height: auto;
+  }
+  #img-main, #img-main2{
+    height: 100%;
+  }
+  .me-4 {
+    margin-right: inherit !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .home_registered_surgeon {
+    width: 75%;
+  }
+  #img-main, #img-main2{
+    height: 100%;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .home_registered_surgeon {
+    width: 100%;
+  }
+  #img-main, #img-main2{
+    height: 100%;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .home_registered_surgeon {
+    width: 100%;
+  }
+  #img-main, #img-main2{
+    height: 100%;
+  }
+}
 .main_content {
   padding-top: 100px;
   color: #2c3e50;

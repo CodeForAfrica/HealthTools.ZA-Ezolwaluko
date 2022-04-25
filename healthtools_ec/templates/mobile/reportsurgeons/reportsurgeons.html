@@ -11,7 +11,7 @@
     <form action="{{ url_for('reports_home_mobi') }}" class="form-horizontal" method="POST">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-group">
-            <div class="control-label">
+            <div class="control-label mb-3">
                 What is your name?
             </div>
             <div class="is-invalid">
@@ -23,7 +23,7 @@
 
         </div>
         <div class="form-group">
-            <div class="control-label">
+            <div class="control-label mb-3">
                 What is your phone number?
             </div>
             <div class="is-invalid">
@@ -35,7 +35,7 @@
 
         </div>
         <div class="form-group">
-            <div class="control-label">
+            <div class="control-label mb-3">
                 What is the illegal traditional surgeon's name?
             </div>
             <div class="is-invalid">
@@ -47,7 +47,7 @@
 
         </div>
         <div class="form-group">
-            <div class="control-label">
+            <div class="control-label mb-3">
                 What area does he work in?
             </div>
             <div class="is-invalid">
@@ -59,7 +59,7 @@
 
         </div>
         <div class="form-group {% if form.report_problem.errors %} has-error {% endif %}">
-            <div class="control-label col-sm-3">
+            <div class="control-label col-sm-3 mb-3">
                 Please describe what is happening
             </div>
             <div class="col-sm-3">
