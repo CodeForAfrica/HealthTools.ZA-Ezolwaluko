@@ -1,13 +1,13 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-light bg-light">
   <div class="navbar-brand d-flex align-items-center mx-auto w-75">
-      <div class="w-75 me-4">
+      <div class="w-75 me-4 ms-3">
         <a rel="home" href="{{ url_for('home') }}" title="EZOLWALUKO">
           <img class="img-fluid" id="logo"  src="/static/img/Logomain.png">
         </a>
       </div>
-      <div class="w-25 h-auto me-4 me-lg-0 mg-md-0 text-end">
-        <button type="submit" class="navbar-toggler m-auto p-2 nav-button" aria-expanded="false" onclick="window.location.href='/en'">English</button>
+      <div class="d-flex">
+        <button type="submit" class="navbar-toggler me-1 p-2 nav-button" aria-expanded="false" onclick="window.location.href='/en'">English</button>
         <button class="navbar-toggler m-auto nav-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbar3" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

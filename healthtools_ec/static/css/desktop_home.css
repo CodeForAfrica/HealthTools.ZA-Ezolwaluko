@@ -177,6 +177,19 @@ figure.snip1174:hover #figureimage {
   transform: scale(1.0);
 }
 
+.form-control {
+  line-height: 2.0 !important;
+}
+.form-control, input{
+  border-width: 2px !important;
+  box-shadow: none !important;
+}
+.form-control:focus, input:focus{
+  border-color: #2C3E49 !important;
+  box-shadow: none !important;
+  outline: 0;
+}
+
 /* Media */
 @media (max-width: 400px) {
   #imagewidth{
@@ -191,7 +204,7 @@ figure.snip1174:hover #figureimage {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
   #img-main, #img-main2{
     height: 30%;
   }
@@ -203,9 +216,9 @@ figure.snip1174:hover #figureimage {
     width: 100%;
     margin: 0 !important
   }
-  .main_content {
+  /* .main_content {
     flex-direction: column;
-  }
+  } */
   .others1 {
     flex-direction: column;
   }
@@ -305,6 +318,56 @@ figure.snip1174:hover #figureimage {
     height: 100%;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .initiate_help_page {
+    padding-right: 0 !important;
+  }
+  .initiates_problems {
+    flex-direction: column;
+  }
+  .initiate_help_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .register_home_page {
+    text-align: center !important;
+    margin: 1.5rem;
+  }
+  .register_form {
+    padding: 0px !important;
+    width: 100% !important;
+  }
+  .register_fields {
+    flex-direction: column;
+  }
+  .register_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .report_form {
+    padding: 0px !important;
+    width: 100% !important;
+  }
+  .report_form_fields {
+    flex-direction: column;
+  }
+  .report_form_input {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .initiate_page_content {
+    width: 100% !important;
+  }
+  .initiate_help_desc {
+    padding: 0px !important;
+    text-align: center;
+  }
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .home_registered_surgeon {
@@ -325,6 +388,7 @@ figure.snip1174:hover #figureimage {
 }
 .main_content {
   padding-top: 100px;
+  padding-bottom: 100px;
   color: #2c3e50;
   font-family: Quicksand;
 }
@@ -337,6 +401,7 @@ figure.snip1174:hover #figureimage {
 }
 .navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192,57,43, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  height: 1.4em;
 }
 .nav-button:hover{
   background-color: #97989a;
@@ -388,4 +453,10 @@ footer a:hover {
 }
 .faqc{
 color:#c0392b;
+}
+
+@media (max-width: 576px) {
+.flex-sm-column {
+  flex-direction: column !important;
+}
 }

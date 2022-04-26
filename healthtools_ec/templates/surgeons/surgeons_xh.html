@@ -9,12 +9,12 @@
         </p>
         <form action="{{ url_for('surgeons_register') }}" method="POST">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <div class="d-flex flex-column pe-5 m-auto register_form">
+            <div class="d-flex flex-column w-75 m-auto register_form">
                 <div class="mt-3 d-flex align-items-center register_fields">
-                    <div class="form-label w-50 text-end pe-5 register_input">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         Bhala igama?
                     </div>
-                    <div class="{% if form.name.errors %} form-control is-invalid {% endif %} w-50 register_input">
+                    <div class="{% if form.name.errors %} form-control is-invalid {% endif %} w-75 register_input">
                         {{ form.name(placeholder="Type your name...", class="form-control") }}
                     </div>
                     <p class="invalid-feedback register_input">
@@ -22,10 +22,10 @@
                     </p>
                 </div>
                 <div class="mt-3 d-flex align-items-center register_fields">
-                    <div class="form-label w-50 text-end pe-5 register_input">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         Ithini ifone number?
                     </div>
-                    <div class="d-flex flex-column w-50 register_input">
+                    <div class="d-flex flex-column w-75 register_input">
                         <div class="{% if form.phone_number.errors %} form-control is-invalid {% endif %} w-100">
                             {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
                         </div>
@@ -35,10 +35,10 @@
                     </div>
                 </div>
                 <div class="mt-3 d-flex align-items-center register_fields">
-                    <div class="form-label w-50 text-end pe-5 register_input">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         Ingaba ikweyiphi indawo ingcibi?
                     </div>
-                    <div class="d-flex flex-column w-50 register_input">
+                    <div class="d-flex flex-column w-75 register_input">
                         <div class="{% if form.area.errors %} form-control is-invalid {% endif %} w-100">
                             {{ form.area(placeholder="Type your area...", class="form-control") }}
                         </div>
