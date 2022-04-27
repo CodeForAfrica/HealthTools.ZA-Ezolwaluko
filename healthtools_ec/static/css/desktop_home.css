@@ -189,8 +189,8 @@ figure.snip1174:hover #figureimage {
   outline: 0;
 }
 
-.navbar-light{
-  background-color: white;
+.bg-light{
+  background-color: white !important;
 }
 
 /* Media */
@@ -277,9 +277,6 @@ figure.snip1174:hover #figureimage {
     width: 100% !important;
     text-align: center !important;
   }
-  .w-75 {
-    width: 100% !important;
-  }
   figure.snip1175 {
     width: inherit !important;
   }
@@ -319,6 +316,13 @@ figure.snip1174:hover #figureimage {
   }
   #img-main, #img-main2{
     height: 100%;
+  }
+  .find_form {
+    margin: auto;
+    width: 75% !important;
+  }
+  .find_form_fields_values {
+    width: 50% !important;
   }
 }
 
