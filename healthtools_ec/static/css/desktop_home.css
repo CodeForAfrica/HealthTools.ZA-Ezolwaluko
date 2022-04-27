@@ -189,6 +189,10 @@ figure.snip1174:hover #figureimage {
   outline: 0;
 }
 
+.navbar-light{
+  background-color: white;
+}
+
 /* Media */
 @media (max-width: 400px) {
   #imagewidth{
