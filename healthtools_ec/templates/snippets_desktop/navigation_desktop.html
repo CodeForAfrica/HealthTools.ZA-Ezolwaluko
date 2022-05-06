@@ -1,43 +1,28 @@
 <!-- Navigation -->
-
-  <nav class="navbar navbar-fixed-top">
-
-      <div class="navbar-header page-scroll">
-        <button type="button"  id="my-element-11" class="navbar-toggle btn-responsive container-4 Absolute-Center " data-toggle="collapse" data-target="#navbar3">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div class="navbar-brand d-flex align-items-center mx-auto w-75">
+      <div class="w-50 me-4">
+        <a rel="home" href="{{ url_for('home') }}" title="EZOLWALUKO">
+          <img class="img-fluid" id="logo"  src="/static/img/Logomain.png">
+        </a>
+      </div>
+      <div class="d-flex">
+        <button type="submit" class="navbar-toggler me-1 p-2 nav-button" aria-expanded="false" onclick="window.location.href='/xh'">XHOSA</button>
+        <button class="navbar-toggler m-auto nav-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbar3" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-          <button type="submit" id="my-element-11"
-                        class="navbar-toggle btn-responsive container-4 Absolute-Center-2"
-                        aria-expanded="false" onclick="window.location.href='/xh'">XHOSA
-                </button>
-          <a class="navbar-brand" rel="home" href="{{ url_for('home') }}" title="EZOLWALUKO">
-        <img  id="logo"  src="/static/img/Logomain.png">
-    </a>
       </div>
-      <div id="navbar3" class="navbar-collapse collapse">
-        <ul class="nav navbar-center" id="mainnav">
-          <li class="active">
-            <li><a href="{{ url_for('widgets') }}">Is
-                            your surgeon registered?</a></li>
-                        <li><a href="{{ url_for('initiates_home') }}">Do
-                            you know an initiate in trouble?</a></li>
-                        <li><a href="{{ url_for('reports_home') }}" >Report
-                            an illegal traditional surgeon</a></li>
-                        <li><a href="{{ url_for('surgeons_register') }}">Register
-                            as a traditional surgeon</a></li>
-                        <li><a href="{{ url_for('locator') }}">Find
-                            a registered traditional surgeon</a></li>
-                        <li><a href="{{ url_for('about') }}">About
-                            this project</a></li>
-                        <li><a href="{{ url_for('contact') }}">Contact
-                            details</a></li>
-            <li><a href="{{ url_for('faq') }}">Frequently Asked Questions</a></li>
-                        <br>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    <!--/.container-fluid -->
-  </nav>
+  </div>
+  <div id="navbar3" class="collapse navbar-collapse">
+    <div class="navbar-nav mb-2 mb-lg-0 text-center justify-content-center w-75 m-auto">
+        <a class="nav-item nav-link nav-items-links" href="{{ url_for('widgets') }}">Is your surgeon registered?</a>
+        <a class="nav-item nav-link" href="{{ url_for('initiates_home') }}">Do you know an initiate in trouble?</a>
+        <a class="nav-item nav-link" href="{{ url_for('reports_home') }}" >Report an illegal traditional surgeon</a>
+        <a class="nav-item nav-link" href="{{ url_for('surgeons_register') }}">Register as a traditional surgeon</a>
+        <a class="nav-item nav-link" href="{{ url_for('locator') }}">Find a registered traditional surgeon</a>
+        <a class="nav-item nav-link" href="{{ url_for('about') }}">About this project</a>
+        <a class="nav-item nav-link" href="{{ url_for('contact') }}">Contact details</a>
+        <a class="nav-item nav-link" href="{{ url_for('faq') }}">Frequently Asked Questions</a>
+    </div>
+  </div>
+</nav>

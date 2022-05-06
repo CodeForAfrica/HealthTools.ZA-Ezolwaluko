@@ -1,65 +1,46 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-    <section class="success" id="home">
-
-
-    <h3>Frequently Asked Questions:</h3>
-
-    <p>Why is city press doing this project? (project origination and history)    <br>
+    <div style="color: #363435;" class="d-flex flex-column">
+        <h3>Frequently Asked Questions:</h3>
+        <p class="m-0">Why is city press doing this project? (project origination and history)</p>
         <p class="faqc">(Coming Soon)</p>
-        Who is involved? (partners)    <br>
+        <p class="m-0">Who is involved? (partners)</p>
         <p class="faqc">(Coming Soon)</p>
-        Is this endorsed by the department of health?    <br>
+        <p class="m-0">Is this endorsed by the department of health?</p>
         <p class="faqc">(Coming Soon)</p>
-        This is a culturally sensitive topic, what steps have you taken to make sure the treatment/app positioning is
-        appropriate?    <br>
+        <p class="m-0">This is a culturally sensitive topic, what steps have you taken to make sure the treatment/app positioning is appropriate?</p>
         <p class="faqc">(Coming Soon)</p>
-        Where is the information from (who owns the data)?    <br>
+        <p class="m-0">Where is the information from (who owns the data)?</p>
         <p class="faqc">(Coming Soon)</p>
-        How can I get in touch with you? <br>
+        <p class="m-0">How can I get in touch with you?</p>
         <p class="faqc">(Coming Soon)</p>
-        </p>
-        <br>
-
-        <div class="container">
-            <div class="row row-centered">
-                <div class="col-xs-4 col-sm-3 portfolio-item col-centered">
-                    <a href="http://city-press.news24.com/" target="_blank" class="portfolio-link"
-                       data-toggle="modal">
-                        <img src="/static/img/citypress.png" class="img-responsive" alt="" style="">
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <div class="portfolio-item">
+                    <a href="http://city-press.news24.com/" target="_blank" class="portfolio-link" data-toggle="modal">
+                        <img src="/static/img/citypress.png" class="img-responsive" alt="">
                     </a>
                 </div>
-
-
-                <div class="col-xs-4 col-sm-3 portfolio-item col-centered">
+                <div class="portfolio-item">
                     <a href="http://eclgta.ecprov.gov.za/" target="_blank" class="portfolio-link" data-toggle="modal">
-                        <img src="/static/img/CogTa.png" class="img-responsive" alt="" style="">
+                        <img src="/static/img/CogTa.png" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="row row-centered">
-                    <div class="col-xs-4 col-sm-3 portfolio-item col-centered">
-                        <a href="https://codeforafrica.org/"
-                           target="_blank" class="portfolio-link" data-toggle="modal">
-                            <img src="/static/img/Code4Africa.png" class="img-responsive" alt="" style="">
-                        </a>
-                    </div>
-
-                    <div class="col-xs-4 col-sm-3 portfolio-item col-centered">
-                        <a href="http://opendata.durban" target="_blank" class="portfolio-link"
-                           data-toggle="modal">
-                            <img src="/static/img/Open%20Data%20Durban%20Logo.png" class="img-responsive" alt="" style="">
-                        </a>
-                    </div>
-
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="portfolio-item">
+                    <a href="https://codeforafrica.org/"
+                    target="_blank" class="portfolio-link" data-toggle="modal">
+                        <img src="/static/img/Code4Africa.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="http://opendata.durban" target="_blank" class="portfolio-link" data-toggle="modal">
+                        <img src="/static/img/Open%20Data%20Durban%20Logo.png" class="img-responsive" alt="">
+                    </a>
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-
-    </section>
-
+    </div>
 {% endblock content %}

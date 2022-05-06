@@ -2,32 +2,25 @@
 
 {% block content %}
 
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
+<div class="main_content text-center">
+    <h3>Registered traditional surgeons (TS) and nurses (TN) in your area</h3>
+    <table class="table">
+    <tr>
+        <th id="th">Name</th>
+        <th id="th">Phone</th>
+        <th id="th">Std.</th>
+        <th id="th">Type</th>
+    </tr>
 
-            <h3>Registered traditional surgeons (TS) and nurses (TN) in your area:</h3>
-            <table class="table">
-            <tr>
-                <th id="th">Name</th>
-                <th id="th">Phone</th>
-                <th id="th">Std.</th>
-                <th id="th">Type</th>
-            </tr>
-
-            {% for s in surgeons %}
-                <tr>
-                   <td>{{s.name}}</td>
-                   <td><span>{% if s.phone_number in ['None', '', None] %} N/A {% else %} {{s.phone_number}} {% endif %}</span></td>
-                   <td><span>{% if s.standard in ['None', '', None] %} N/A {% else %} {{s.standard}} {% endif %}</span></td>
-                   <td><span>{% if s.category in ['None', '', None] %} N/A {% else %} {{s.category}} {% endif %}</span></td>
-                </tr>
-            {% endfor %}
-            </table>
-                <br>
-                <br>
-                <br>
-                <br>
-        </section>
-    </div>
+    {% for s in surgeons %}
+        <tr>
+            <td>{{s.name}}</td>
+            <td><span>{% if s.phone_number in ['None', '', None] %} N/A {% else %} {{s.phone_number}} {% endif %}</span></td>
+            <td><span>{% if s.standard in ['None', '', None] %} N/A {% else %} {{s.standard}} {% endif %}</span></td>
+            <td><span>{% if s.category in ['None', '', None] %} N/A {% else %} {{s.category}} {% endif %}</span></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
 
 {% endblock content %}

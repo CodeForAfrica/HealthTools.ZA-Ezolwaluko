@@ -2,54 +2,49 @@
 
 {% block content %}
 
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
-            <p>Do you know an initiate who is experiencing health problems during their initiation? Let us know and save
-                a
-                life!
-            </p><br/>
-            <form action="{{ url_for('initiates_home_mobi') }}" class="form-horizontal" method="POST" style="position: absolute;">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="form-group {% if form.name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        What is your name?
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.name(placeholder="Type your name...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.name.errors[0] }}
-
+    <div style="color: #363435;">
+        <p>
+            Do you know an initiate who is experiencing health problems during their initiation? Let us know and save a life!
+        </p>
+        <form action="{{ url_for('initiates_home_mobi') }}" class="form-horizontal" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+                <div class="control-label">
+                    What is your name?
                 </div>
-                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        What is your phone number?
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.phone_number.errors[0] }}
-
+                <div class="is-invalid">
+                    {{ form.name(placeholder="Type your name...", class="form-control") }}
                 </div>
-                <div class="form-group {% if form.initiate_problem.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        Please describe the problem the initiate is going through
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.initiate_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.initiate_problem.errors[0] }}
-
+                <p class="invalid-feedback">
+                    {{ form.name.errors[0] }}
+                </p>
+            </div>
+            <div class="form-group">
+                <div class="control-label">
+                    What is your phone number?
                 </div>
-                <button class="btn btn-success" type="submit">Submit</button>
-                <br>
-                <br>
-                <br>
-                <br>
-            </form>
-        </section>
+                <div class="is-invalid">
+                    {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.phone_number.errors[0] }}
+                </p>
+            </div>
+            <div class="form-group">
+                <div class="control-label">
+                    Please describe the problem the initiate is going through
+                </div>
+                <div class="is-invalid">
+                    {{ form.initiate_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.initiate_problem.errors[0] }}
+                </p>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-danger" type="submit" style="width: 100%;">Submit</button>
+            </div>
+        </form>
     </div>
 
 {% endblock content %}

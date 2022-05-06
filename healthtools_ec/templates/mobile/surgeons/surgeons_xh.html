@@ -1,56 +1,52 @@
 {% extends "layout_xh.html" %}
 
 {% block content %}
-
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
-            <p>Kubalulekile ukuba iigncibi zibhalise ngokusemthethweni phaya kwisebe lezempilo khona ukuze siqinisekise
-                ukuba zinaso isakhono sokwalusa kwaye ziselungelweni lokwenza njalo. Ukuba ufuna ukubhalisa nje
-                ngengcibi, nceda ugcwalise apha ngezantsi. Igosa lakwarhulumente lizakuqhakamshelana nawe.
-            </p><br/>
-
-            <form action="{{ url_for('surgeons_register_mobi') }}" class="form-horizontal" method="POST", style="position: absolute">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="form-group {% if form.name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        Bhala igama?
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.name(placeholder="Type your name...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.name.errors[0] }}
-
+    <div style="color: #363435;">
+        <p>Kubalulekile ukuba iigncibi zibhalise ngokusemthethweni phaya kwisebe lezempilo khona ukuze siqinisekise
+            ukuba zinaso isakhono sokwalusa kwaye ziselungelweni lokwenza njalo. Ukuba ufuna ukubhalisa nje
+            ngengcibi, nceda ugcwalise apha ngezantsi. Igosa lakwarhulumente lizakuqhakamshelana nawe.
+        </p>
+        <form action="{{ url_for('surgeons_register_mobi') }}" class="form-horizontal" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-group {% if form.name.errors %} has-error {% endif %}">
+                <div class="control-label">
+                    Bhala igama?
                 </div>
-                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        Ithini ifone number?
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.phone_number.errors[0] }}
-
+                <div class="is-invalid">
+                    {{ form.name(placeholder="Type your name...", class="form-control") }}
                 </div>
-                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-3">
-                        Ingaba ikweyiphi indawo ingcibi?
-                    </div>
-                    <div class="col-sm-3">
-                        {{ form.area(placeholder="Type your area...", class="form-control") }}
-                    </div>
-                    <p class="col-sm-5 help-block">
-                        {{ form.area.errors[0] }}
+                <p class="invalid-feedback">
+                    {{ form.name.errors[0] }}
+                </p>
 
+            </div>
+            <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
+                <div class="control-label">
+                    Ithini ifone number?
                 </div>
-                <button class="btn btn-success" type="submit">Chofa apha</button>
-                <br>
-                <br>
-                <br>
-                <br>
-            </form>
-        </section>
+                <div class="is-invalid">
+                    {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.phone_number.errors[0] }}
+                </p>
+
+            </div>
+            <div class="form-group {% if form.area.errors %} has-error {% endif %}">
+                <div class="control-label">
+                    Ingaba ikweyiphi indawo ingcibi?
+                </div>
+                <div class="is-invalid">
+                    {{ form.area(placeholder="Type your area...", class="form-control") }}
+                </div>
+                <p class="invalid-feedback">
+                    {{ form.area.errors[0] }}
+                </p>
+
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-danger" type="submit" style="width: 100%;">Chofa apha</button>
+            </div>
+        </form>
     </div>
-
 {% endblock content %}

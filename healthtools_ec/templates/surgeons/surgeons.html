@@ -2,52 +2,55 @@
 
 {% block content %}
 
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
-            <p>It is important for traditional surgeons to register with the department of health to ensure they
-                have the
-                requisite skills to perform circumcisions.
-                If you would like to register, fill out these fields and a government official will contact you.
-            </p><br/>
-            <form action="{{ url_for('surgeons_register') }}" class="form-horizontal" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="form-group {% if form.name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+    <div class="main_content text-center register_home_page">
+        <p>It is important for traditional surgeons to register with the department of health to ensure they
+            have the
+            requisite skills to perform circumcisions.
+            If you would like to register, fill out these fields and a government official will contact you.
+        </p>
+        <form action="{{ url_for('surgeons_register') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="d-flex flex-column w-75 m-auto register_form">
+                <div class="mt-3 d-flex align-items-center register_fields">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         What is your name?
                     </div>
-                    <div class="col-sm-5">
+                    <div class="{% if form.name.errors %} form-control is-invalid {% endif %} w-75 register_input">
                         {{ form.name(placeholder="Type your name...", class="form-control") }}
                     </div>
-                    <p class="col-sm-1 help-block">
+                    <p class="invalid-feedback register_input">
                         {{ form.name.errors[0] }}
-
+                    </p>
                 </div>
-                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center register_fields">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         What is your phone number?
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                    <div class="d-flex flex-column w-75 register_input">
+                        <div class="{% if form.phone_number.errors %} form-control is-invalid {% endif %} w-100">
+                            {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.phone_number.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.phone_number.errors[0] }}
-
                 </div>
-                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center register_fields">
+                    <div class="form-label w-25 text-end pe-3 register_input">
                         What area do you work in?
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.area(placeholder="Type your area...", class="form-control") }}
-                                                                                            <br/>
-                    <button class="btn btn-success" type="submit" style="float: right; padding: 8px 30px 8px 30px;">Submit</button>
+                    <div class="d-flex flex-column w-75 register_input">
+                        <div class="{% if form.area.errors %} form-control is-invalid {% endif %} w-100">
+                            {{ form.area(placeholder="Type your area...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.area.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.area.errors[0] }}
                 </div>
-
-            </form>
-        </section>
+                <button class="btn btn-success mt-2 padded_btn text-end align-self-end" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
 
 {% endblock content %}

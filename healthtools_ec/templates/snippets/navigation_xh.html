@@ -1,35 +1,28 @@
-<div class="container-fluid container-1">
-        <nav class="navbar navbar-default navbar-fixed-top container-1 bot" style="background: #CE232B">
-            <div class="navbar-header page-scroll">
-                <button type="button" id="my-element-11"
-                        class="navbar-toggle btn-responsive container-4 Absolute-Center "
-                        data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <button type="submit" id="my-element-11"
-                        class="navbar-toggle btn-responsive container-4 Absolute-Center-2"
-                        aria-expanded="false" onclick="window.location.href='/xh'">EN
-                </button>
-               <div class="container-fluid container-1" style=" background: white;">
-                   <a class="navbar-brand" href="{{ url_for('home') }}">
-                       <img id="logo" src="/static/img/Logomain.png" style="height: 20px;width: 80%; max-width: 160px;">
-                   </a>
-                    </div>
-                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-center">
-                        <li><a href="{{ url_for('widgets_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Ingaba ingcibi yakho ibhalisiwe ngokwasemthethweni?</a></li>
-                        <li><a href="{{ url_for('initiates_home_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Ingaba unomkhwetha omaziyo osengxakini okanye ebungozini?</a></li>
-                        <li><a href="{{ url_for('reports_home_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Chaza ingcibi engekhosemthethweni</a></li>
-                        <li><a href="{{ url_for('surgeons_register_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Igcibi ibhalisa apha</a></li>
-                        <li><a href="{{ url_for('locator_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Fumana ingcibi apha</a></li>
-                        <li><a href="{{ url_for('about_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px">Ulwazi malunga nalomba</a></li>
-                        <li><a href="{{ url_for('contact_mobi') }}" class="btn btn-default btn-responsive" style="line-height: 14px; padding: 2px;">Bhala inombolo ze fowuni</a></li>
-                        <br>
-                    </ul>
+<div class="container-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="d-flex flex-column" style="width: 100%;">
+            <div class="d-flex" style="width: 100%;">
+                <a class="navbar-brand flex-fill px-4" href="{{ url_for('home') }}">
+                    <img id="logo" src="/static/img/Logomain.png" style="height: 20px;width: 80%; max-width: 160px;"/>
+                </a>
+                <div class="d-flex">
+                    <button type="submit" class="navbar-toggler m-1 nav-button" type="button" aria-expanded="false" onclick="window.location.href='/en'">EN</button>
+                    <button class="navbar-toggler m-1 nav-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
             </div>
-        </nav>
-    </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="{{ url_for('widgets_mobi') }}" class="nav-link" aria-current="page">Ingaba ingcibi yakho ibhalisiwe ngokwasemthethweni?</a></li>
+                    <li class="nav-item"><a href="{{ url_for('initiates_home_mobi') }}" class="nav-link">Ingaba unomkhwetha omaziyo osengxakini okanye ebungozini?</a></li>
+                    <li><a href="{{ url_for('reports_home_mobi') }}" class="nav-link">Chaza ingcibi engekhosemthethweni</a></li>
+                    <li><a href="{{ url_for('surgeons_register_mobi') }}" class="nav-link">Igcibi ibhalisa apha</a></li>
+                    <li><a href="{{ url_for('locator_mobi') }}" class="nav-link">Fumana ingcibi apha</a></li>
+                    <li><a href="{{ url_for('about_mobi') }}" class="nav-link">Ulwazi malunga nalomba</a></li>
+                    <li><a href="{{ url_for('contact_mobi') }}" class="nav-link">Bhala inombolo ze fowuni</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

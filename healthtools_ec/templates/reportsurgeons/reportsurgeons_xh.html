@@ -2,77 +2,83 @@
 
 {% block content %}
 
-    <div class="container-fluid container-7">
-        <section class="success" id="home">
-            <p>Siyacela ingcibi zibhalise ngokusemthethweni phaya kwelasebe lezempilo ukuqinisekisa ukuba zikulungele
-                kwaye
-                zinaso isakhono sokwalusa amakhwenkwe. Mawethu lento ibalulekile kakhulu njengoba nisazi nani baninzi
-                abakhwetha abaswelekayo
-                ngenxa yeengcibi ezingekho mthethweni minyaka le. Mxele umntu owalusa ngokungekho mthethweni khona ukuze
-                usindise ubomi bomntwana.
-            </p><br/>
-
-            <form action="{{ url_for('reports_home') }}" class="form-horizontal" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <div class="form-group {% if form.opt_name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+    <div class="main_content report_home_page">
+        <p>Siyacela ingcibi zibhalise ngokusemthethweni phaya kwelasebe lezempilo ukuqinisekisa ukuba zikulungele
+            kwaye
+            zinaso isakhono sokwalusa amakhwenkwe. Mawethu lento ibalulekile kakhulu njengoba nisazi nani baninzi
+            abakhwetha abaswelekayo
+            ngenxa yeengcibi ezingekho mthethweni minyaka le. Mxele umntu owalusa ngokungekho mthethweni khona ukuze
+            usindise ubomi bomntwana.
+        </p>
+        <form action="{{ url_for('reports_home') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="d-flex flex-column w-75 m-auto report_form">
+                <div class="mt-3 d-flex align-items-center report_form_fields">
+                    <div class="form-label w-50 text-end pe-5 report_form_input">
                         Bhala igama?
                     </div>
-                    <div class="col-sm-5">
+                    <div class="{% if form.opt_name.errors %} form-control is-invalid {% endif %} w-50 report_form_input">
                         {{ form.opt_name(placeholder="Type your name (optional)...", class="form-control") }}
                     </div>
-                    <p class="col-sm-1 help-block">
+                    <p class="invalid-feedback report_form_input">
                         {{ form.opt_name.errors[0] }}
-
+                    </p>
                 </div>
-                <div class="form-group {% if form.phone_number.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center report_form_fields">
+                    <div class="form-label w-50 text-end pe-5 report_form_input">
                         Ithini ifone number?
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                    <div class="d-flex flex-column w-50 report_form_input">
+                        <div class="{% if form.phone_number.errors %}form-control is-invalid {% endif %} w-100">
+                            {{ form.phone_number(placeholder="Type your phone number...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.phone_number.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.phone_number.errors[0] }}
-
                 </div>
-                <div class="form-group {% if form.surgeons_name.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center report_form_fields">
+                    <div class="form-label w-50 text-end pe-5 report_form_input">
                         Ngubani lengcibi yalusayo ngaphandle kwevume?
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.surgeons_name(placeholder="Enter his name...", class="form-control") }}
+                    <div class="d-flex flex-column w-50 report_form_input">
+                        <div class="{% if form.surgeons_name.errors %} form-control has-error {% endif %} w-100">
+                            {{ form.surgeons_name(placeholder="Enter his name...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.surgeons_name.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.surgeons_name.errors[0] }}
-
                 </div>
-                <div class="form-group {% if form.area.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center report_form_fields">
+                    <div class="form-label w-50 text-end pe-5 report_form_input">
                         Amakhwenkwe/abantwana?
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.area(placeholder="Type the area...", class="form-control") }}
+                    <div class="d-flex flex-column w-50 report_form_input">
+                        <div class="{% if form.area.errors %} form-control is-invalid {% endif %} w-100">
+                            {{ form.area(placeholder="Type the area...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.area.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.area.errors[0] }}
-
                 </div>
-                <div class="form-group {% if form.report_problem.errors %} has-error {% endif %}">
-                    <div class="control-label col-sm-5">
+                <div class="mt-3 d-flex align-items-center report_form_fields">
+                    <div class="form-label w-50 text-end pe-5 report_form_input">
                         Chaza kwenzekani
                     </div>
-                    <div class="col-sm-5">
-                        {{ form.report_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
-                         <br/>
-                    <button class="btn btn-success" type="submit" style="float: right; padding: 8px 30px 8px 30px;">Chofa apha</button>
+                    <div class="d-flex flex-column w-50 report_form_input">
+                        <div class="{% if form.report_problem.errors %} form-control is-invalid {% endif %} w-100">
+                            {{ form.report_problem(placeholder="Describe the nature of the problem...", class="form-control") }}
+                        </div>
+                        <p class="invalid-feedback w-100">
+                            {{ form.report_problem.errors[0] }}
+                        </p>
                     </div>
-                    <p class="col-sm-1 help-block">
-                        {{ form.report_problem.errors[0] }}
                 </div>
-
-            </form>
-        </section>
+                <button class="btn btn-success mt-2 padded_btn text-end align-self-end" type="submit">Chofa apha</button>
+            </div>
+        </form>
     </div>
 
 {% endblock content %}
